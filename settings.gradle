@@ -1,0 +1,2 @@
+rootProject.name='Bento'
+include ':app'

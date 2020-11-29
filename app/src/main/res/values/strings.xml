@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Бенто</string>
+    <string name="bento_logo">Лого</string>
+    <string name="men">Меню</string>
+    <string-array name="menu">
+        <item>Бенто</item>
+        <item>Суши</item>
+        <item>Роллы</item>
+        <item>Супы</item>
+    </string-array>
+    <string name="bento_photo">Фото бенто</string>
+    <string name="title_activity_bento_list">Список бенто</string>
+</resources>
