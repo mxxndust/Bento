@@ -15,11 +15,13 @@ import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 
@@ -28,6 +30,7 @@ public class OrderActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     private Cursor cursor;
     private Spinner mSpinner;
+    private boolean checked;
 
     EditText ed1, ed2;
     Button btn_order;
@@ -70,6 +73,17 @@ public class OrderActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(this, "База недоступна!", Toast.LENGTH_SHORT);
             toast.show();
         }
+
+        Switch switch2 = (Switch) findViewById(R.id.switch1);
+        /*if (switch2 != null) {
+            switch2.setOnCheckedChangeListener((CompoundButton.OnCheckedChangeListener) this);*/
+        switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            checked = isChecked;
+        }
+        });
 
         TextWatcher tw = new TextWatcher() {
             @Override
@@ -114,16 +128,26 @@ public class OrderActivity extends AppCompatActivity {
         Intent intent = new Intent(OrderActivity.this, MainActivity.class);
         startActivity(intent);
 
-        Toast toast_order = Toast.makeText(getApplicationContext(),
-                R.string.order_created, Toast.LENGTH_LONG);
-        toast_order.setGravity(Gravity.CENTER, 0, 0);
+        if (checked) {
+            Toast toast_order = Toast.makeText(getApplicationContext(),
+                    R.string.order_created, Toast.LENGTH_LONG);
+            toast_order.setGravity(Gravity.CENTER, 0, 0);
+            toast_order.show();
+        }
+        else {
+            Toast toast_order = Toast.makeText(getApplicationContext(),
+                    R.string.order_created2, Toast.LENGTH_LONG);
+            toast_order.setGravity(Gravity.CENTER, 0, 0);
+            toast_order.show();
+        }
+        //toast_order.setGravity(Gravity.CENTER, 0, 0);
 
         /*LinearLayout toastContainer = (LinearLayout) toast_order.getView();
         ImageView orderImageView = new ImageView(getApplicationContext());
         orderImageView.setImageResource(R.drawable.check);
         toastContainer.addView(orderImageView, 0);*/
 
-        toast_order.show();
+        //toast_order.show();
     }
 
     /*public void showToast(View view) {

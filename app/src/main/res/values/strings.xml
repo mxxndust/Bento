@@ -17,6 +17,8 @@
     <string name="bento_choice">Выберите бенто:</string>
     <string name="name">Введите ваше имя:</string>
     <string name="tel">Введите номер телефона:</string>
-    <string name="order_created">Заказ создан!</string>
+    <string name="order_created">Заказ создан! Оплата наличными!</string>
+    <string name="order_created2">Заказ создан! Оплата безналом!</string>
+
     <string name="order_create">Заказать</string>
 </resources>
