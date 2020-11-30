@@ -32,4 +32,9 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.menu_list);
         listView.setOnItemClickListener(itemClickListener);
     }
+
+    public void onClick(View view) {
+        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+        startActivity(intent);
+    }
 }

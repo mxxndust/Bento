@@ -10,4 +10,5 @@
     </string-array>
     <string name="bento_photo">Фото бенто</string>
     <string name="title_activity_bento_list">Список бенто</string>
+    <string name="orded">Сделать заказ</string>
 </resources>
