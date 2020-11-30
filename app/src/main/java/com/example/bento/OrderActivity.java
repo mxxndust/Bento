@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -42,12 +41,12 @@ public class OrderActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ed1 = (EditText) findViewById(R.id.ent_name);
-        ed2 = (EditText) findViewById(R.id.ent_phone);
-        btn_order = (Button) findViewById(R.id.button2);
+        ed1 = findViewById(R.id.ent_name);
+        ed2 = findViewById(R.id.ent_phone);
+        btn_order = findViewById(R.id.button2);
 
         SQLiteOpenHelper DBHelper = new DBHelper(this);
-        Spinner spinBentos = (Spinner) findViewById(R.id.spinner);
+        Spinner spinBentos = findViewById(R.id.spinner);
         try {
             db = DBHelper.getReadableDatabase();
             cursor = db.query("BENTO",
@@ -60,23 +59,12 @@ public class OrderActivity extends AppCompatActivity {
                     new int[]{android.R.id.text1},
                     0);
             spinBentos.setAdapter(listAdapter);
-            /*listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinBentos.setPrompt("Выберите Бенто!");
-
-            spinBentos.setAdapter(
-                    new NothingSelectedSpinnerAdapter(
-                            listAdapter,
-                            R.layout.contact_spinner_row_nothing_selected,
-                            // R.layout.contact_spinner_nothing_selected_dropdown, // Optional
-                            this));*/
         } catch(SQLiteException e) {
             Toast toast = Toast.makeText(this, "База недоступна!", Toast.LENGTH_SHORT);
             toast.show();
         }
 
-        Switch switch2 = (Switch) findViewById(R.id.switch1);
-        /*if (switch2 != null) {
-            switch2.setOnCheckedChangeListener((CompoundButton.OnCheckedChangeListener) this);*/
+        Switch switch2 = findViewById(R.id.switch1);
         switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
         @Override
@@ -85,43 +73,41 @@ public class OrderActivity extends AppCompatActivity {
         }
         });
 
-        TextWatcher tw = new TextWatcher() {
+        ed1.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                btn_order.setEnabled(ed1.getText().toString().trim().length() > 0
+                        && ed2 .getText().toString().trim().length() > 0 );
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
-                updateSignInButtonState();
+            public void afterTextChanged(Editable s) {
+
             }
-        };
+        });
 
-       /* public void updateSignInButtonState() {
-            btn_order.setEnabled(ed1.getText().length() > 0 &&
-                    ed2.getText().length() > 0);
-        }*/
+        ed2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        /*ed_1 = (EditText) findViewById(R.id.ent_name);
-        ed_2 = (EditText) findViewById(R.id.ent_phone);
-        btn_ok = (Button) findViewById(R.id.button2);
-        btn_ok.setEnabled(false);
+            }
 
-        EditText[] edList = {ed_1, ed_2};
-        CustomTextWatcher textWatcher = new CustomTextWatcher(edList, btn_ok);
-        for (EditText editText : edList) editText.addTextChangedListener(textWatcher);*/
-    }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                btn_order.setEnabled(ed1.getText().toString().trim().length() > 0
+                        && ed2 .getText().toString().trim().length() > 0 );
+            }
 
-    private void updateSignInButtonState() {
-        btn_order.setEnabled(ed1.getText().length() > 0 &&
-                ed2.getText().length() > 0);
-        /*if(ed1.getText().toString().trim().isEmpty) || ed2.isEmpty())
-        {
-            btn_order.setEnabled(false);
-        }*/
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     public void onClick(View view) {
@@ -150,14 +136,4 @@ public class OrderActivity extends AppCompatActivity {
         //toast_order.show();
     }
 
-    /*public void showToast(View view) {
-        Toast toast_order = Toast.makeText(getApplicationContext(),
-                R.string.order_created, Toast.LENGTH_LONG);
-        toast_order.setGravity(Gravity.CENTER, 0, 0);
-        LinearLayout toastContainer = (LinearLayout) toast_order.getView();
-        ImageView catImageView = new ImageView(getApplicationContext());
-        catImageView.setImageResource(R.drawable.check);
-        toastContainer.addView(catImageView, 0);
-        toast_order.show();
-    }*/
 }
