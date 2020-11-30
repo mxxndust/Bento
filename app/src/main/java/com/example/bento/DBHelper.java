@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + "NAME TEXT, "
                 + "INGREDIENTS TEXT, "
                 + "IMAGE INTEGER);");
-        insertData(db, "Детское бенто", "Рис, Сосиски", R.drawable.kidbento, "BENTO");
+        insertData(db, "Детское бенто", "Рис, Сосиски", R.drawable.kidbento2, "BENTO");
         insertData(db, "Бенто Панда", "Рис, Пельмени, Лотос", R.drawable.bentopanda, "BENTO");
     }
 

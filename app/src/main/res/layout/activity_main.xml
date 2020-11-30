@@ -31,13 +31,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <ListView
+    <!-- ListView
         android:id="@+id/menu_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:entries="@array/menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" /-->
+
+    <ListView
+        android:id="@+id/list_bento"
+        android:layout_width="387dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -46,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClick"
-        android:text="@string/orded"
+        android:text="@string/order"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"

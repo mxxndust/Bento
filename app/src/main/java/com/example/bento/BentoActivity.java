@@ -20,6 +20,8 @@ public class BentoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bento);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         int bentoId = (Integer)getIntent().getExtras().get(EXTRA_BENTOID);
 
         SQLiteOpenHelper DBHelper = new DBHelper(this);
