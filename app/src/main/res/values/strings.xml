@@ -2,12 +2,6 @@
     <string name="app_name">Бенто</string>
     <string name="bento_logo">Лого</string>
     <string name="men">Меню</string>
-    <!--string-array name="menu">
-        <item>Бенто</item>
-        <item>Суши</item>
-        <item>Роллы</item>
-        <item>Супы</item>
-    </string-array-->
     <string name="bento_photo">Фото бенто</string>
     <string name="title_activity_bento">Подробная информация</string>
     <string name="title_activity_order">Оформление заказа</string>
@@ -19,6 +13,5 @@
     <string name="tel">Введите номер телефона:</string>
     <string name="order_created">Заказ создан! Оплата наличными!</string>
     <string name="order_created2">Заказ создан! Оплата безналом!</string>
-
     <string name="order_create">Заказать</string>
 </resources>

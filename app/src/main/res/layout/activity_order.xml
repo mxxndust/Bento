@@ -14,22 +14,23 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="4dp"
-        android:background="@android:color/holo_purple"
+        android:background="@android:drawable/btn_dropdown"
+        android:popupBackground="@android:color/holo_purple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyle"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
         android:layout_marginTop="56dp"
         android:enabled="false"
         android:onClick="onClick"
         android:text="@string/order_create"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1"
-        style="@style/Widget.AppCompat.Button.Colored" />
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
     <EditText
         android:id="@+id/ent_phone"
@@ -52,11 +53,6 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
-
-    <!--<android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"-->
-
 
     <TextView
         android:id="@+id/textView3"

@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -38,17 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     new int[]{android.R.id.text1},
                     0);
             listBentos.setAdapter(listAdapter);
-            //listAdapter.clear();
-            //listAdapter.addAll(listBentos);
             listAdapter.notifyDataSetChanged();
-
-            /*if(listAdapter.getCount() > 5){
-                View item = listAdapter.getView(0, null, listBentos);
-                item.measure(0, 0);
-                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (5.5 * item.getMeasuredHeight()));
-                listBentos.setLayoutParams(params);
-            }*/
-
         } catch(SQLiteException e) {
             Toast toast = Toast.makeText(this, "База недоступна!", Toast.LENGTH_SHORT);
             toast.show();
@@ -77,28 +66,6 @@ public class MainActivity extends AppCompatActivity {
         cursor.close();
         db.close();
     }
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        AdapterView.OnItemClickListener itemClickListener =
-                new AdapterView.OnItemClickListener(){
-                    @Override
-                    public void onItemClick(AdapterView<?> listView,
-                                            View itemView,
-                                            int position,
-                                            long id) {
-                        if (position == 0) {
-                            Intent intent = new Intent(MainActivity.this,
-                                    BentoListActivity.class);
-                            startActivity(intent);
-                        }
-                    }
-                };
-        ListView listView = (ListView) findViewById(R.id.menu_list);
-        listView.setOnItemClickListener(itemClickListener);
-    }*/
 
     public void onClick(View view) {
         Intent intent = new Intent(MainActivity.this, OrderActivity.class);

@@ -1,7 +1,6 @@
 package com.example.bento;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cursoradapter.widget.SimpleCursorAdapter;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,9 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -126,14 +122,7 @@ public class OrderActivity extends AppCompatActivity {
             toast_order.setGravity(Gravity.CENTER, 0, 0);
             toast_order.show();
         }
-        //toast_order.setGravity(Gravity.CENTER, 0, 0);
 
-        /*LinearLayout toastContainer = (LinearLayout) toast_order.getView();
-        ImageView orderImageView = new ImageView(getApplicationContext());
-        orderImageView.setImageResource(R.drawable.check);
-        toastContainer.addView(orderImageView, 0);*/
-
-        //toast_order.show();
     }
 
 }

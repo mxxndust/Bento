@@ -17,12 +17,6 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         updateMyDatabase(db, 0, DB_VERSION);
-        /*db.execSQL("CREATE TABLE BENTO (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "NAME TEXT, "
-                + "INGREDIENTS TEXT, "
-                + "IMAGE INTEGER);");
-        insertData(db, "Детское бенто", "Рис, Сосиски", R.drawable.kidbento2, "BENTO");
-        insertData(db, "Бенто Панда", "Рис, Пельмени, Лотос", R.drawable.bentopanda, "BENTO");*/
     }
 
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
