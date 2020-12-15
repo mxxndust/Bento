@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -23,10 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         SQLiteOpenHelper DBHelper = new DBHelper(this);
-        ListView listBentos = (ListView) findViewById(R.id.list_bento);
+        ListView listBentos = findViewById(R.id.list_bento);
         try {
             db = DBHelper.getReadableDatabase();
             cursor = db.query("BENTO",
@@ -39,6 +38,17 @@ public class MainActivity extends AppCompatActivity {
                     new int[]{android.R.id.text1},
                     0);
             listBentos.setAdapter(listAdapter);
+            //listAdapter.clear();
+            //listAdapter.addAll(listBentos);
+            listAdapter.notifyDataSetChanged();
+
+            /*if(listAdapter.getCount() > 5){
+                View item = listAdapter.getView(0, null, listBentos);
+                item.measure(0, 0);
+                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (5.5 * item.getMeasuredHeight()));
+                listBentos.setLayoutParams(params);
+            }*/
+
         } catch(SQLiteException e) {
             Toast toast = Toast.makeText(this, "База недоступна!", Toast.LENGTH_SHORT);
             toast.show();
